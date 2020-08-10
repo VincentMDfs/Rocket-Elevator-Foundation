@@ -1,0 +1,115 @@
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Dashboard Admin - Rocket Elevators</title>
+<style type="text/css">
+body { font: normal 14px Verdana; }
+h1 { font-size: 24px; }
+h2 { font-size: 18px; }
+#sidebar { float: right; width: 30%; }
+#main { padding-right: 15px; }
+.infoWindow { width: 220px; }
+</style>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLEMAPS"]%>"></script>
+<script type="text/javascript">
+//<![CDATA[
+
+var map;
+
+var center = new google.maps.LatLng(46.842757, -71.280479);
+
+function init() {
+
+var mapOptions = {
+zoom: 4,
+center: center,
+//mapTypeId: google.maps.MapTypeId.ROADMAP
+}
+
+map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+infoWindow = new google.maps.InfoWindow({ content: sContent });
+
+//var marker = new google.maps.Marker({
+//map: map,
+//position: center,
+//});
+
+
+<% Building.all.each do |building| %> 
+
+  var weatherContent;
+
+  <% response = HTTParty.get('http://api.weatherapi.com/v1/current.json?key=' + ENV["WEATHER_API"] + '&q='+ building.address.city) %>
+  console.log(<% response.body %> )
+  
+<% b_ids = Battery.where(building_id: building.id).ids
+            c = Column.where(battery_id: b_ids)
+            c_ids = Column.where(battery_id: b_ids).ids
+            totalElevators = Elevator.where(column_id: c_ids).count
+
+totalFloors = c.maximum(:number_of_floors_served) %>
+
+
+
+  var sContent =  '<h2>' + 
+                  "<%= building.customer.full_name %>" + '</h2>' + '<br />' +	'<p>' +
+                  "<strong>Location: </strong> " + "<%= building.address.latitude %>" + ' , ' + "<%= building.address.longitude %>"	+			'<br />' +			
+                  "<strong>City: </strong>" + "<%= building.address.city %>" +			'<br />' +		
+                  "<strong>Batteries: </strong>" + "<%= building.batteries.count %>" +		'<br/>' +	
+                  "<strong>Columns: </strong>" +	"<%= building.batteries.columns.count %>" + '<br/>' +	
+                  "<strong>Elevators: </strong>" + "<%=totalElevators%>" + '<br/>' + 
+                  "<strong>Floors: </strong>" +	"<%= totalFloors %>" + '<br/>' +
+                  "<strong>Tech Contact Name: </strong>" + "<%= building.tech_contact_full_name %>" + '<br/>' +
+                  "<strong>Temperature:  </strong>" + "<%= JSON.parse(response.body)["current"]["temp_c"] %>" + "°C" + '<br/>' + 
+                  "<strong>Weather Condition:  </strong>" + "<%= JSON.parse(response.body)["current"]["condition"]["text"] %>" ;
+
+
+
+  var buildingMarker = new google.maps.Marker({
+    map: map,
+    position: {lat: <%= building.address.latitude%>, lng: <%= building.address.longitude %>},
+    icon: "<%= ActionController::Base.helpers.image_url('favicon.png') %>",
+    info: sContent
+    
+    
+  });
+  google.maps.event.addListener( buildingMarker, 'click', function() {
+  	
+  infoWindow.setContent( this.info );	   infoWindow.open( map, this );	
+});
+
+buildingMarker.setMap(map);
+
+<% end %> 
+}
+//]]>
+</script>
+</head>
+<body onload="init();">
+
+<a id= "watson" class="btn btn-danger btn-md">START WATSON<i class="fa fa-angle-right"></i></a>
+
+<h1>Buildings</h1>
+
+<section id="sidebar">
+<div id="directions_panel"></div>
+</section>
+
+<section id="main">
+<div id="map_canvas" style="width: 70%; height: 500px;"></div>
+</section>
+
+</body>
+</html>
+
+ <audio id="audio">
+  <source src="<%= audio_path 'watson.mp3'%>" type="audio/mpeg">
+</audio>
+<script>
+    $('#watson').on('click', ()=>{
+      var audio = $('#audio').get(0);
+      audio.paused? audio.play():audio.pause()
+      audio.paused? $('#watson').text('PLAY'):$('#watson').text('PAUSE')
+    })
+</script>

@@ -1,0 +1,135 @@
+	<!-- PORTFOLIO -->
+	<section id="work">
+		<div class="container" style="width: auto;">
+
+			<div class="heading-title heading-dotted text-center">
+				<h2>Choose Your Building Type</h2>
+			</div>
+
+			<div id="building" class="text-center" style="margin: 0px; padding: 0px;">
+				<ul class="nav nav-pills mix-filter mb-60">
+					<li data-filter="res" id="resSelect" class="filter"><a href="#">Residential</a></li>
+					<li data-filter="com" id="comSelect" class="filter"><a href="#">Commercial</a></li>
+					<li data-filter="corp" id="corpSelect" class="filter"><a href="#">Corporate</a></li>
+					<li data-filter="hyb" id="hybSelect" class="filter"><a href="#">Hybrid</a></li>
+				</ul>
+			</div>
+
+		</div>
+
+		<div class="container">
+			<div class="row mix-grid">
+				<div class="card card-default">
+					<div class="card-heading">
+						<h2 class="card-title">Choose your type of building above and fill out the form below!</h2>
+					</div>
+					<div class="card-block">
+						<%= form_tag main_path, :id=> 'quoteForm' do %>
+							<fieldset>
+							<input type="hidden" name="type_of" id="type_of">
+								<div class="row">
+									<div class="col-md-4 col-sm-6 mix res com corp hyb ">
+										<label>Name</label>
+										<input type="text" id="name1" class="form-control myForm" name="name1" >
+									</div>
+									<div class="col-md-4 col-sm-6 mix res com corp hyb">
+										<label>Email</label>
+										<input type="text" id="email1" class="form-control myForm" name="email1" >
+									</div>
+									<div class="col-md-4 col-sm-6 mix res com corp hyb">
+										<label>Phone number</label>
+										<input type="text" id="phone" class="form-control myForm" name="phone1" >
+									</div>
+									<div class="col-md-4 col-sm-6 mix res">
+										<label># of Apartments</label>
+										<input type="number" id="numApt" class="form-control myForm" name="app" >
+									</div>
+									<div class="col-md-4 col-sm-6 mix res com corp hyb">
+										<label># of Floors</label>
+										<input type="number" id="numFloors" class="form-control myForm" name="floors">
+									</div>
+									<div class="col-md-4 col-sm-6 mix res com corp hyb">
+										<label># of Basements</label>
+										<input type="number" id="numBase" class="form-control myForm" name="basements">
+									</div>
+									<div class="col-md-4 col-sm-6 mix com hyb">
+										<label># of Distinct Buisinesses</label>
+										<input type="number" id="numBiz" class="form-control myForm" name="businesses">
+									</div>
+									<div class="col-md-4 col-sm-6 mix com corp hyb">
+										<label># of Parking Spaces</label>
+										<input type="number" id="numPark" class="form-control myForm" name="parking">
+									</div>
+									<div class="col-md-4 col-sm-6 mix com">
+										<label># of Elevator Cages</label>
+										<input type="number" id="numCage" class="form-control myForm" name="cages">
+									</div>
+									<div class="col-md-4 col-sm-6 mix corp">
+										<label># of Seperate Tenant Companies</label>
+										<input type="number" id="numTenant" class="form-control myForm" name="tenants">
+									</div>
+									<div class="col-md-4 col-sm-6 mix corp hyb">
+										<label># of Occupants Per Floor</label>
+										<input type="number" id="numOcc" class="form-control myForm" name="occupants">
+									</div>
+									<div class="col-md-4 col-sm-6 mix hyb">
+										<label># of Hours of Activity Daily (max:24) </label>
+										<input type="number" id="numHourly" min="1" max="24" class="form-control myForm" name="hours">
+									</div>
+									<div class="col-md-12 col-sm-12 mix res com corp hyb">
+										<div class="card-heading">
+											<h2 class="card-title">Choose a service package!</h2>
+										</div>
+										<div >
+											<label>
+												<input type="radio" name="serviceType" id="standard" autocomplete="off"
+													value="standard"> Standard
+											</label>
+											<label>
+												<input type="radio" name="serviceType" id="premium" autocomplete="off"
+													value="premium"> Premium
+											</label>
+											<label>
+												<input type="radio" name="serviceType" id="excelium" autocomplete="off"
+													value="excelium"> Excelium
+											</label>
+										</div>
+										<div class="row">
+											<div class= 'col-md-2'># of Elevator Cages
+											<input type="text" name="totalElevators" class="form-control" readonly>
+											</div>
+											<div class= 'col-md-2'>$ Unit Price of Cage
+											<input type="text" name="unitCost" class="form-control" readonly>
+											</div>
+										<div class="col-md-8"> Total Cost of Cages
+											<input type="text" name="subtotal" class="form-control" readonly>
+										</div>
+									</div>
+										<div class="row">
+										<div class="col-md-3">Selected Service Type
+											<input type="text" name="typeOfService" class="form-control" readonly>
+										</div>
+										<div class="col-md-9">Installation Cost
+											<input type="text" name="installation" class="form-control" readonly>
+										</div>
+										</div>
+										<div class="row">
+										<div class="col-md-12">Total
+											<input type="text" name="grandtotal" class="form-control" readonly>
+										</div>
+										</div>
+										<div class= "row">
+											<div class="col-md-3">
+											
+											<input class = "btn btn-danger btn-block" type="submit" value="Submit" id= "subQuoteForm" onclick="alert('Your Quote has been submitted!')">
+										</div>
+										</div>
+									</div>
+							</fieldset>
+						<%end%>
+					</div>
+				</div>`
+			</div>
+		</div>
+	</section>
+	<!-- /PORTFOLIO -->

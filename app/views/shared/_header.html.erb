@@ -1,0 +1,80 @@
+<div id="header" class="navbar-toggleable-md sticky header-md clearfix">
+
+    <!-- TOP NAV -->
+    <header id="topNav">
+        <div class="container">
+
+            <!-- Mobile Menu Button -->
+            <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <!-- Logo -->
+            <%= link_to main_index_path, :class => 'logo float-left' do %>
+            <%= image_tag 'R2.png' %>
+            <% end %>
+
+            <!-- 
+                Top Nav 
+            -->
+            <div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
+                <nav class="nav-main">
+
+                    <!-- 
+                        .nav-onepage
+                        Required for onepage navigation links
+                        
+                        Add .external for an external link!
+                    -->
+                    <ul id="topMain" class="nav nav-pills nav-main nav-onepage">
+                        <li><%= link_to 'HOME', main_index_path%></li>
+
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#">
+                                SERVICES
+                            </a>
+                            <ul class="dropdown-menu">
+                                    <li><%= link_to 'Residential Projects', main_residential_projects_path%></li>
+                                    <li><%= link_to 'Commercial Projects', main_commercial_projects_path%></li>
+                            </ul>
+                        </li>
+                        <li><!-- WORK -->
+                            <%= link_to "PORTFOLIO", "#{main_index_path}#work" %>
+                        </li>
+                        <li><!-- NEWS -->
+                            <%= link_to "NEWS", "#{main_index_path}#news" %>
+                        </li>
+                        <li><!-- CLIENTS -->
+                            <%= link_to "CLIENTS", "#{main_index_path}#clients" %>
+                        </li>
+                        <li><!-- CONTACT -->
+                            <%= link_to "CONTACT", "#{main_index_path}#contact" %>
+                        </li>
+                        <% if user_signed_in? %>
+                            <li><%= link_to "ACCOUNT", edit_user_registration_path %></li>
+                            <li><%= link_to "LOGOUT", destroy_user_session_path %></li>
+                        <% else %>
+                            <li><%= link_to "SIGN UP", new_user_registration_path%></li>
+                            <li><%= link_to "LOGIN", new_user_session_path%></li>
+                        <% end %>
+                        <% if current_user.try(:admin?) %>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#">
+                                ADMIN
+                            </a>
+                            <ul class="dropdown-menu">
+                                    <li><%= link_to "BACKOFFICE", rails_admin.dashboard_path %></li>
+                                    <li><%= link_to "CHARTS", "/blazer" %></li>
+                            </ul>
+                        </li>
+                        <% end %>
+                    </ul>
+
+                </nav>
+            </div>
+
+        </div>
+    </header>
+</div>
