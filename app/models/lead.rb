@@ -44,11 +44,11 @@ class Lead < ApplicationRecord
                 #{self.email} and at phone number #{self.phone}.  #{self.department_in_charge} has a project named #{self.project_name}
                 wich would require contribution from Rocket Elevators.
                 
-                #{self.project_description}
+                Project description: #{self.project_description}
                 
                 Attached Message:  #{self.message}
 
-                The Contact uploaded an attachment "
+                Thank you "
             }, 
             :requester => { 
                 "name": self.full_name, 

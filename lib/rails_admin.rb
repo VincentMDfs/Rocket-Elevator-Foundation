@@ -30,7 +30,7 @@ module RailsAdmin
         employee = Employee.find_by(user_id: current_user.id)
         File.open("app/assets/audios/watson.mp3", "wb") do |audio_file|
           response = text_to_speech.synthesize(
-          text: "Good day #{employee.first_name} #{employee.last_name}, Watson speaking. There are currently #{Elevator.count} elevators deployed in the #{Building.count} buildings of your #{Customer.count} customers. As of this moment, #{Elevator.where(status: 1).count} elevators are not operational. You currently have #{Quote.count} quotes awaiting processing and #{Lead.count} lead in your contact requests. #{Battery.count} batteries are deployed across #{Address.pluck(:city).uniq.count} cities. As always, it is a pleasure to serve you.",
+          text: "Good day",
           accept: "audio/mp3",
           voice: "en-GB_JamesV3Voice"
           ).result

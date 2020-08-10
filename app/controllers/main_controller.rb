@@ -61,7 +61,7 @@ end
             )
         end
 # Sendgrid (finally) in a working state
-            from = SendGrid::Email.new(email: 'rocket@lemire.dev')
+            from = SendGrid::Email.new(email: 'codeboxxvincentmd@gmail.com')
             to = SendGrid::Email.new(email: params[:contact][:email])
             subject = 'Contact form success'
             content = Content.new(type: 'text/html', value: '<html><body><a href="https://relevator.xyz" title="Rocket Elevators"><img src="https://relevator.xyz'+ActionController::Base.helpers.image_url('R2small.png')+'" alt="Rocket logo" /></a><br /><br /><h3 style="color:red;">Greetings '+params[:contact][:name]+'</h3><br /><p style="color:red;">We thank you for contacting Rocket Elevators to discuss the opportunity to contribute to your project '+params[:contact][:project_name]+'. <br /><br /> A representative from our team will be in touch with you very soon. We look forward to demonstrate the value of our solutions and help you choose the appropriate product given your requirements.<br /></p>
