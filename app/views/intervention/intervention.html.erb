@@ -1,2 +1,51 @@
-<h1>Intervention#intervention</h1>
-<p>Find me in app/views/intervention/intervention.html.erb</p>
+<br \>
+<h3 class="text-center">Create an intervention<h3>
+<form>
+<div class="row">
+    <div class="col-md-4 text-center">
+        <label for="select-customer">Choose a customer</label>
+        <select id="select-customer" class="form-control pointer" name="select-customer">
+        </select>
+    </div>
+    <div class="col-md-4 text-center">
+        <label for="select-building">Select a building</label>
+        <select id="select-building" class="form-control pointer" name="select-building">
+        </select>
+    </div>
+    <div class="col-md-4 text-center">
+        <label for="select-battery">Select a battery</label>
+        <select id="select-battery" class="form-control pointer" name="select-battery">
+        </select>
+    </div>
+</div>
+    <div class="row">
+    <div class="col-md-4 text-center">
+        <label for="select-column">Select a column (optional)</label>
+        <select id="select-column" class="form-control pointer" name="select-column">
+        </select>
+    </div>
+    <div class="col-md-4 text-center">
+        <label for="select-elevator">Select an elevator (optional)</label>
+        <select id="select-elevator" class="form-control pointer" name="select-elevator">
+        </select>
+    </div>
+    <div class="col-md-4 text-center">
+        <label for="select-employee">Assign to: (optional)</label>
+        <select id="select-employee" class="form-control pointer" name="select-employee">
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 text-center">
+        <label for=select-description">Description</label>
+        <input type="text" id="select-description" class="form-control pointer" name="select-description">
+    </div>
+    <br \>
+    <br \>
+</div>	
+<div class="row">
+    <div class="col-md-12 text-center">
+        <button type="submit" class="btn btn-blue">CREATE</button>
+    </div>
+</div>
+</form>
