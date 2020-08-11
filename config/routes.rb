@@ -12,12 +12,12 @@ Rails.application.routes.draw do
   end
 root "main#index"
 
-get 'customer', to: 'intervention#get_customers'
+get 'get_customer', to: 'intervention#get_customers'
 get 'get_buildings_by_customer/:buildings_id', to: 'intervention#get_buildings_by_customer'
 get 'get_batteries_by_building/:battery_id', to: 'intervention#get_batteries_by_building'
 get 'get_columns_by_battery/:column_id', to: 'intervention#get_columns_by_battery'
 get 'get_elevators_by_column/:elevator_id', to: 'intervention#get_elevators_by_column'
-get 'employee', to: 'intervention#get_employees'
+get 'get_employee', to: 'intervention#get_employees'
 
 get "main/index"
 get 'main/residential_projects'
