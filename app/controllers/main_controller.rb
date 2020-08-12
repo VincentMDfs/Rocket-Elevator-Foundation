@@ -32,6 +32,22 @@ def banane
 
     
 end
+
+def createIntervention  
+
+    Intervention.create(
+        author: Employee.where(user_id: current_user.id).first.id,
+        customer_id: params[:selectcustomer],
+        building_id: params[:selectbuilding],
+        battery_id: params[:selectbattery],
+        column_id: params[:selectcolumn],
+        report: params[:selectdescription],
+        elevator_id: params[:selectelevator])
+        
+        redirect_to '/', notice: "Intervention creation successful"
+    
+end
+
 #Workaround added for empty attachment error
     def contactToLead
         if !params[:attachment].nil?

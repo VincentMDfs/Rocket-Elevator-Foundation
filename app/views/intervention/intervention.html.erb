@@ -1,41 +1,42 @@
 <br \>
 <h2 class="text-center">Create an intervention</h2>
-<form id="intervention-form">
+<!-- INSERTING THE FORM IN THE INTERVENTIONS TABLE -->
+<%= form_tag createIntervention_path, :id=> 'intervention-form', multipart: true do %>
 <h4>
 <div class="row">
     <div class="col-md-3 text-center">
         <label for="select-customer">Choose a customer</label>
-        <select id="select-customer" class="form-control pointer" name="select-customer" required>
+        <select id="select-customer" class="form-control pointer" name="selectcustomer" required>
         <option value="" disabled selected>Choose a customer</option>
         </select>
     </div>
     <div class="col-md-7 text-center">
         <label for="select-building">Select a building</label>
-        <select id="select-building" class="form-control pointer" name="select-building" required>
+        <select id="select-building" class="form-control pointer" name="selectbuilding" required>
         </select>
     </div>
     <div class="col-md-2 text-center">
         <label for="select-battery">Select a battery</label>
-        <select id="select-battery" class="form-control pointer" name="select-battery" required>
+        <select id="select-battery" class="form-control pointer" name="selectbattery" required>
         </select>
     </div>
 </div>
     <div class="row">
     <div class="col-md-4 text-center">
         <label for="select-column">Select a column (optional)</label>
-        <select id="select-column" class="form-control pointer" name="select-column">
+        <select id="select-column" class="form-control pointer" name="selectcolumn">
         <option value="">None</option>
         </select>
     </div>
     <div class="col-md-4 text-center">
         <label for="select-elevator">Select an elevator (optional)</label>
-        <select id="select-elevator" class="form-control pointer" name="select-elevator">
+        <select id="select-elevator" class="form-control pointer" name="selectelevator">
         <option value="">None</option>
         </select>
     </div>
     <div class="col-md-4 text-center">
         <label for="select-employee">Assign to: (optional)</label>
-        <select id="select-employee" class="form-control pointer" name="select-employee">
+        <select id="select-employee" class="form-control pointer" name="selectemployee">
         <option value="">None</option>
         </select>
     </div>
@@ -43,7 +44,7 @@
 <div class="row">
     <div class="col-md-12 text-center">
         <label for="select-description">Description (optional)</label>
-        <input type="text" id="select-description" class="form-control pointer" name="select-description">
+        <input type="text" id="select-description" class="form-control pointer" name="selectdescription">
     </div>
     <br \>
     <br \>
@@ -54,10 +55,12 @@
         <button type="submit" class="btn btn-blue">CREATE</button>
     </div>
 </div>
-</form>
+<% end %>
 
 <script>
 
+
+// Functions to load the select dropdown fields
 function customerLoad() {
     <% Customer.all.each do |customer| %>
         $("#select-customer").append("<option value='<%=customer.id%>'><%=customer.company_name%></option>")
@@ -104,6 +107,8 @@ function elevatorLoad() {
     <% end %>
 };
 
+// functions to remove pre-populated fields
+
 function autoRemove(arg) {
     $(arg).find('option').remove()
 };
@@ -112,6 +117,9 @@ function autoRemoveAll() {
     $('#intervention-form').find('option').remove()
 
 };
+
+// On every page load, clears all and repopulates
+
 autoRemoveAll()
 customerLoad()
 buildingLoad()
@@ -120,6 +128,8 @@ columnLoad()
 elevatorLoad()
 employeeLoad()
 
+
+// Event listeners that manipulate the select fields
 $('#select-customer').change(function(){
     autoRemove('#select-building')
     autoRemove('#select-battery')

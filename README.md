@@ -112,3 +112,25 @@ Adds weather information to the maps pop-up window
 
 ## All API KEYS ARE STORED SERVER SIDE ONLY
 ### Please be reasonnable with your api calls as most of the accounts are a trial version!
+
+
+
+
+# WEEK 9 (Consolidation)
+
+### Interventions
+
+- /app/controllers/main_controller.rb
+Here you will find the function to connect
+the intervention form to the database table interventions
+
+- /app/views/intervention/intervention.html.erb
+This file contains the html form and all the ruby/javascript code required
+
+- /app/config/routes
+A few routes were also added here
+
+- https://relevator.xyz/intervention
+Note that you will not find the page unless connected as an admin
+Upon completion, press the create button and the entry will be created
+

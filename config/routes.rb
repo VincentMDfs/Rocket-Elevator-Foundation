@@ -19,6 +19,7 @@ get 'main/quote'
 get 'main/404'
 post 'main', to: "main#banane"
 post 'contactToLead', to: "main#contactToLead"
+post 'createIntervention', to: "main#createIntervention"
 get 'fileLeads/:id', to: 'main#download'
 get '*path' => redirect('/main/404')
 
