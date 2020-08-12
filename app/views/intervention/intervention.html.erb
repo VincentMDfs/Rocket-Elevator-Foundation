@@ -7,7 +7,6 @@
     <div class="col-md-3 text-center">
         <label for="select-customer">Choose a customer</label>
         <select id="select-customer" class="form-control pointer" name="selectcustomer" required>
-        <option value="" disabled selected>Choose a customer</option>
         </select>
     </div>
     <div class="col-md-7 text-center">
@@ -44,7 +43,7 @@
 <div class="row">
     <div class="col-md-12 text-center">
         <label for="select-description">Description (optional)</label>
-        <input type="text" id="select-description" class="form-control pointer" name="selectdescription">
+        <input type="text" placeholder="Description here" id="select-description" class="form-control pointer" name="selectdescription">
     </div>
     <br \>
     <br \>
@@ -52,7 +51,7 @@
 </h4>	
 <div class="row">
     <div class="col-md-12 text-center">
-        <button type="submit" class="btn btn-blue">CREATE</button>
+        <button type="submit" class="btn btn-red">CREATE</button>
     </div>
 </div>
 <% end %>
@@ -117,10 +116,13 @@ function autoRemoveAll() {
     $('#intervention-form').find('option').remove()
 
 };
-
+function clearText() {
+        $('#select-description').val("")
+    }
 // On every page load, clears all and repopulates
 
 autoRemoveAll()
+clearText()
 customerLoad()
 buildingLoad()
 batteryLoad()
