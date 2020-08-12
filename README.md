@@ -134,3 +134,6 @@ A few routes were also added here
 Note that you will not find the page unless connected as an admin
 Upon completion, press the create button and the entry will be created
 
+- /app/models/intervention.rb
+Creation of the zendesk ticket with required fields
+
