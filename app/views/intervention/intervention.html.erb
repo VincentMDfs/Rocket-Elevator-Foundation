@@ -1,21 +1,22 @@
 <br \>
 <h2 class="text-center">Create an intervention</h2>
-<form>
+<form id="intervention-form">
 <h4>
 <div class="row">
-    <div class="col-md-4 text-center">
+    <div class="col-md-3 text-center">
         <label for="select-customer">Choose a customer</label>
-        <select id="select-customer" class="form-control pointer" name="select-customer">
+        <select id="select-customer" class="form-control pointer" name="select-customer" required>
+        <option value="" disabled selected>Choose a customer</option>
         </select>
     </div>
-    <div class="col-md-4 text-center">
+    <div class="col-md-7 text-center">
         <label for="select-building">Select a building</label>
-        <select id="select-building" class="form-control pointer" name="select-building">
+        <select id="select-building" class="form-control pointer" name="select-building" required>
         </select>
     </div>
-    <div class="col-md-4 text-center">
+    <div class="col-md-2 text-center">
         <label for="select-battery">Select a battery</label>
-        <select id="select-battery" class="form-control pointer" name="select-battery">
+        <select id="select-battery" class="form-control pointer" name="select-battery" required>
         </select>
     </div>
 </div>
@@ -23,22 +24,25 @@
     <div class="col-md-4 text-center">
         <label for="select-column">Select a column (optional)</label>
         <select id="select-column" class="form-control pointer" name="select-column">
+        <option value="">None</option>
         </select>
     </div>
     <div class="col-md-4 text-center">
         <label for="select-elevator">Select an elevator (optional)</label>
         <select id="select-elevator" class="form-control pointer" name="select-elevator">
+        <option value="">None</option>
         </select>
     </div>
     <div class="col-md-4 text-center">
         <label for="select-employee">Assign to: (optional)</label>
         <select id="select-employee" class="form-control pointer" name="select-employee">
+        <option value="">None</option>
         </select>
     </div>
 </div>
 <div class="row">
     <div class="col-md-12 text-center">
-        <label for="select-description">Description</label>
+        <label for="select-description">Description (optional)</label>
         <input type="text" id="select-description" class="form-control pointer" name="select-description">
     </div>
     <br \>
@@ -51,3 +55,101 @@
     </div>
 </div>
 </form>
+
+<script>
+
+function customerLoad() {
+    <% Customer.all.each do |customer| %>
+        $("#select-customer").append("<option value='<%=customer.id%>'><%=customer.company_name%></option>")
+    <% end %>
+};
+function employeeLoad() {
+    $("#select-employee").append("<option value='' selected>None</option>")
+    <% Employee.all.each do |employee| %>
+        $("#select-employee").append("<option value='<%=employee.id%>'><%=employee.first_name%> <%=employee.last_name%></option>")
+    <% end %>
+};
+
+function buildingLoad() {
+    <% Building.all.each do |building| %>
+    if ($('#select-customer').val() == <%=building.customer_id%>){
+        $("#select-building").append("<option value='<%=building.id%>'><%=building.id%></option>")
+    }
+    <% end %>
+};
+
+function batteryLoad() {
+    <% Battery.all.each do |battery| %>
+    if ($('#select-building').val() == <%=battery.building_id%>){
+        $("#select-battery").append("<option value='<%=battery.id%>'>Battery #<%=battery.id%></option>")
+    }
+    <% end %>
+};
+
+function columnLoad() {
+    $("#select-column").append("<option value='' selected>None</option>")
+    <% Column.all.each do |column| %>
+    if ($('#select-battery').val() == <%=column.battery_id%>){
+        $("#select-column").append("<option value='<%=column.id%>'>Column #<%=column.id%></option>")
+    }
+    <% end %>
+};
+
+function elevatorLoad() {
+    $("#select-elevator").append("<option value='' selected>None</option>")
+    <% Elevator.all.each do |elevator| %>
+    if ($('#select-column').val() == <%=elevator.column_id%>){
+        $("#select-elevator").append("<option value='<%=elevator.id%>'>Elevator  #<%=elevator.id%></option>")
+    }
+    <% end %>
+};
+
+function autoRemove(arg) {
+    $(arg).find('option').remove()
+};
+
+function autoRemoveAll() {
+    $('#intervention-form').find('option').remove()
+
+};
+autoRemoveAll()
+customerLoad()
+buildingLoad()
+batteryLoad()
+columnLoad()
+elevatorLoad()
+employeeLoad()
+
+$('#select-customer').change(function(){
+    autoRemove('#select-building')
+    autoRemove('#select-battery')
+    autoRemove('#select-column')
+    autoRemove('#select-elevator')
+    buildingLoad()
+    batteryLoad()
+    columnLoad()
+    elevatorLoad()
+});
+
+$('#select-building').change(function(){
+    autoRemove('#select-battery')
+    autoRemove('#select-column')
+    autoRemove('#select-elevator')
+    batteryLoad()
+    columnLoad()
+    elevatorLoad()
+});
+
+$('#select-battery').change(function(){
+    autoRemove('#select-column')
+    autoRemove('#select-elevator')
+    columnLoad()
+    elevatorLoad()
+});
+
+$('#select-column').change(function(){
+    autoRemove('#select-elevator')
+    elevatorLoad()
+});
+
+</script>
