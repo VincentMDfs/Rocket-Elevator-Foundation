@@ -7,6 +7,7 @@ class CreateInterventions < ActiveRecord::Migration[5.2]
         t.integer :battery_id
         t.integer :column_id
         t.integer :elevator_id
+        t.integer :employee_id
         t.datetime :start_date
         t.datetime :end_date
         t.string :result, null: false, :default => "Incomplete"

@@ -42,9 +42,10 @@ def createIntervention
         battery_id: params[:selectbattery],
         column_id: params[:selectcolumn],
         report: params[:selectdescription],
+        employee_id: params[:selectemployee],
         elevator_id: params[:selectelevator])
         
-        redirect_to '/', notice: "Intervention creation successful"
+        redirect_to '/', notice: "Intervention created successfully"
     
 end
 

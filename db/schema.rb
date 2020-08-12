@@ -190,11 +190,12 @@ ActiveRecord::Schema.define(version: 2020_08_10_213553) do
     t.integer "battery_id"
     t.integer "column_id"
     t.integer "elevator_id"
+    t.integer "employee_id"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.string "result", default: "Incomplete"
+    t.string "result", default: "Incomplete", null: false
     t.text "report"
-    t.string "status", default: "Pending"
+    t.string "status", default: "Pending", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
