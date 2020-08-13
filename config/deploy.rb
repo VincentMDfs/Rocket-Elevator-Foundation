@@ -4,7 +4,7 @@ lock "~> 3.14.1"
 before 'deploy', 'rvm1:install:ruby'
 set :rvm_map_bins, [ 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl' ]
 set :application, "VincentMDfs"
-set :repo_url, "https://github.com/VincentMDfs/apiweek1"
+set :repo_url, "https://github.com/VincentMDfs/Rocket-Elevator-Foundation"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
