@@ -137,3 +137,10 @@ Upon completion, press the create button and the entry will be created
 - /app/models/intervention.rb
 Creation of the zendesk ticket with required fields
 
+# New this week
+
+- A MySQL table named interventions was created
+- A new from with dynamic dropdown menus is now at /intervention
+- The REST api was modified with new "gets" and "puts"
+- The graphQL was also updated to implement mutations
+- And much more...
