@@ -17,7 +17,7 @@ class Intervention < ApplicationRecord
 "
             }, 
             :requester => { 
-                "name": Employee.where(user_id: self.author).first.last_name,
+                "name": Employee.where(user_id: self.author).first.first_name + " " + Employee.where(user_id: self.author).first.last_name, 
                 "email": Employee.where(user_id: self.author).first.email
             },
             :priority => "normal",
