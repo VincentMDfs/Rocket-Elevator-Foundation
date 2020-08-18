@@ -76,7 +76,6 @@ To generate a message in the #elevator_operations channel, you need to login as 
 
 ## ZenDesk API integration  
 Integration in app/models/lead.rb and app/models/quote.rb  
-Account: lemire.zendesk.com, philippe@lemire.dev / codeboxx1!
 
 To generate a lead ticket, you need to fill and submit the contact-us on the page https://relevator.xyz/main/index#contact .
 To generate a quote ticket, you need to fill and submit a quote on the page https://relevator.xyz/main/quote .
