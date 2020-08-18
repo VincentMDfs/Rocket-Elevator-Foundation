@@ -57,6 +57,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # Week 10
+  gem 'rspec', '~> 3.9'
+  gem 'rspec-rails', '~> 4.0.0'
 end
 
 group :test do
@@ -65,6 +68,9 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  # Week 10
+  gem 'rspec', '~> 3.9'
+  gem 'rspec-rails', '~> 4.0.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -123,3 +129,4 @@ gem 'dropbox_api'
 #for deployement
 gem 'ed25519', '>= 1.2', '< 2.0'
 gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
+

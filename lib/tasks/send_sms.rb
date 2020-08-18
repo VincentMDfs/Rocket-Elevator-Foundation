@@ -6,7 +6,7 @@ module Messenger
             client = Twilio::REST::Client.new(acct_sid, auth_token)
 
             from = ENV["TWILIO_PHONE"] # Your Twilio number
-            to = "+15819831152" # Your mobile phone number
+            to = "+14383471379" # Your mobile phone number
             client.messages.create(
             from: from,
             to: to,
