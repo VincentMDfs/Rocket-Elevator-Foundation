@@ -136,10 +136,17 @@ Upon completion, press the create button and the entry will be created
 - /app/models/intervention.rb
 Creation of the zendesk ticket with required fields
 
-# New this week
+### New this week
 
 - A MySQL table named interventions was created
 - A new from with dynamic dropdown menus is now at /intervention
 - The REST api was modified with new "gets" and "puts"
 - The graphQL was also updated to implement mutations
 - And much more...
+
+
+# WEEK 10 (TDD)
+
+- Folder /spec created and holding the spec test files
+- File ElevatorMedia.rb conatins the media streamer
+- Implemented the quote of the day in the /sign_in page (views/devise/sessions/new.html.erb)
