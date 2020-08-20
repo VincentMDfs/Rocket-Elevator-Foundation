@@ -1,5 +1,5 @@
 class Intervention < ApplicationRecord
-    after_save :new_zendesk_intervention_ticket
+    # after_save :new_zendesk_intervention_ticket
 
       def new_zendesk_intervention_ticket
         ZendeskAPI::Ticket.create!($client, 

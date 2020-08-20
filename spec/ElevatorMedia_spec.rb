@@ -2,7 +2,7 @@ require 'ElevatorMedia'
 require 'rspec'
 require 'spec_helper'
 
-describe ElevatorMedia::Streamer do
+describe 'ElevatorMedia' do
     describe 'getContent' do
         # uri = URI('https://quotes.rest/qod')
         # quote = Net::HTTP.get(uri)
@@ -14,7 +14,7 @@ describe ElevatorMedia::Streamer do
         #     puts JSON.parse(quote)
         #     expect(JSON.parse(quote)['contents']).to include('quotes')
         # end
-        it 'output html with the json' do
+        it 'should output html with the json' do
             boite = ElevatorMedia::Streamer.new
             expect(boite.getContent).to include("div")
         end

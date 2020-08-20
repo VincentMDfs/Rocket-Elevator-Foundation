@@ -1,6 +1,6 @@
 RailsAdmin.config do |config|
 
-  require Rails.root.join('lib', 'rails_admin.rb')
+  require Rails.root.join('lib', 'config', 'actions', 'rails_admin.rb')
 
   ### Popular gems integration
 
