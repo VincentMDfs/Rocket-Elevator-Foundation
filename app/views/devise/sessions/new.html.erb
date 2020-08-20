@@ -1,3 +1,11 @@
+<br \>
+<br \>
+<%= 
+require 'ElevatorMedia'
+instance = ElevatorMedia::Streamer.new
+instance.getContent().html_safe
+%>
+<br \>
 <h2 class="text-center">Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
