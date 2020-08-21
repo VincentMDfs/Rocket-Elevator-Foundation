@@ -16,6 +16,6 @@ RSpec.describe "Interventions", type: :controller do
             expect(newIntervention).to be_an(Intervention)
         end
         it 'should contain the author id' do
-
+            expect(newIntervention).to have_attributes(:author => (a_value > 0))
         end
 end
