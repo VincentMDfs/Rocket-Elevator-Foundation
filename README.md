@@ -150,3 +150,7 @@ Creation of the zendesk ticket with required fields
 - Folder /spec created and holding the spec test files
 - File ElevatorMedia.rb conatins the media streamer
 - Implemented the quote of the day in the /sign_in page (views/devise/sessions/new.html.erb)
+
+### To run the tests:
+- Simply clone the repo and run bundle install (if needed)
+- Run "rspec --format doc" to see the output of the tests!
