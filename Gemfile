@@ -59,7 +59,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Week 10
   gem 'rspec', '~> 3.9'
-  gem 'rspec-rails', '~> 4.0.0'
 end
 
 group :test do
@@ -69,7 +68,6 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
   # Week 10
-  gem 'rspec', '~> 3.9'
   gem 'rspec-rails', '~> 4.0.0'
 end
 
