@@ -434,6 +434,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  concurrent-ruby
   devise (>= 4.7.2)
   dropbox_api
   ed25519 (>= 1.2, < 2.0)

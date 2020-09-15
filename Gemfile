@@ -132,7 +132,5 @@ gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 gem 'webmock'
 gem 'vcr'
 
-
-
 # Debugging
-gem "concurrent-ruby'
+gem 'concurrent-ruby'
