@@ -17,6 +17,7 @@ set :deploy_to, "/home/ubuntu/apps/#{app}"
 set :linked_dirs, %w{tmp/pids tmp/sockets log}
 set :linked_files, %w{config/database.yml config/database_second.yml config/application.yml}
 set :rvm_ruby_version, '2.6.5'
+set :rvm_custom_path, '/usr/share/rvm'
 # role-based syntax
 # ==================
 
